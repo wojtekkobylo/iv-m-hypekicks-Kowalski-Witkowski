@@ -9,6 +9,13 @@
     tools:context=".MainActivity"
     android:orientation="vertical">
 
+    <androidx.appcompat.widget.SearchView
+        android:id="@+id/searchView"
+        android:iconifiedByDefault="false"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:queryHint="Szukaj po modelu..." />
+
     <GridView
         android:id="@+id/shoesGridView"
         android:layout_width="match_parent"
