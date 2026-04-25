@@ -63,6 +63,16 @@ class MainActivity : AppCompatActivity() {
             }
 
         setupSearch()
+        binding.btnGoToAdmin.setOnClickListener {
+            val intent = android.content.Intent(this, AdminActivity::class.java)
+            startActivity(intent)
+        }
+        binding.shoesGridView.setOnItemClickListener { _, _, position, _ ->
+            val selectedShoe = filteredList[position]
+            val intent = android.content.Intent(this, DetailsActivity::class.java)
+            intent.putExtra("SHOE_EXTRA", selectedShoe)
+            startActivity(intent)
+        }
     }
 
     // 🔍 WYSZUKIWANIE

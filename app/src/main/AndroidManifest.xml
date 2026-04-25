@@ -12,6 +12,12 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.MamyhypekicksWitkowskiKowalski">
         <activity
+            android:name=".DetailsActivity"
+            android:exported="false" />
+        <activity
+            android:name=".AdminActivity"
+            android:exported="false" />
+        <activity
             android:name=".MainActivity"
             android:exported="true">
             <intent-filter>

@@ -3,23 +3,40 @@
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".MainActivity"
-    android:orientation="vertical">
+    android:orientation="vertical"
+    android:background="#F5F5F5"
+    tools:context=".MainActivity">
 
     <androidx.appcompat.widget.SearchView
         android:id="@+id/searchView"
-        android:iconifiedByDefault="false"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:queryHint="Szukaj po modelu..." />
+        android:layout_margin="8dp"
+        android:background="@android:color/white"
+        android:elevation="2dp"
+        app:iconifiedByDefault="false"
+        app:queryHint="Szukaj po modelu..." />
 
     <GridView
         android:id="@+id/shoesGridView"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        />
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:numColumns="2"
+        android:horizontalSpacing="8dp"
+        android:verticalSpacing="8dp"
+        android:padding="8dp"
+        android:clipToPadding="false" />
+
+    <Button
+        android:id="@+id/btnGoToAdmin"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="16dp"
+        android:text="PANEL ADMINISTRATORA"
+        android:backgroundTint="#212121"
+        android:textColor="@android:color/white" />
 
 </LinearLayout>
