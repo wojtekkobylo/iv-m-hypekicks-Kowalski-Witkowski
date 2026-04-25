@@ -27,40 +27,12 @@ class MainActivity : AppCompatActivity() {
         binding.searchView.isIconified = false
         binding.searchView.clearFocus()
 
-        val db = FirebaseFirestore.getInstance()
+
 
         adapter = ShoeGridAdapter(this, filteredList)
         binding.shoesGridView.adapter = adapter
 
-        val TAG = "FIRESTORE_DEBUG"
-
-        Log.d(TAG, "Start pobierania danych...")
-
-        // 🔥 POPRAWIONE: jedno pobranie, bez pętli
-        db.collection("sneakers")
-            .get()
-            .addOnSuccessListener { result ->
-
-                fullList.clear()
-
-                Log.d(TAG, "Pobrano dokumentów: ${result.size()}")
-
-                if (result.isEmpty) {
-                    Log.d(TAG, "Kolekcja jest pusta ❗")
-                }
-
-                for (doc in result) {
-                    val shoe = doc.toObject(Shoe::class.java)
-                    fullList.add(shoe)
-
-                    Log.d(TAG, "Shoe: ${shoe.brand} ${shoe.modelName}")
-                }
-
-                applyFilter("") // pokaż wszystko na start
-            }
-            .addOnFailureListener { e ->
-                Log.e(TAG, "Błąd Firestore!", e)
-            }
+        loadShoes()
 
         setupSearch()
         binding.btnGoToAdmin.setOnClickListener {
@@ -73,6 +45,31 @@ class MainActivity : AppCompatActivity() {
             intent.putExtra("SHOE_EXTRA", selectedShoe)
             startActivity(intent)
         }
+    }
+
+    override fun onResume() {
+        super.onResume()
+        loadShoes()
+    }
+
+    private fun loadShoes() {
+
+        val db = FirebaseFirestore.getInstance()
+
+        db.collection("sneakers")
+            .get()
+            .addOnSuccessListener { result ->
+
+                fullList.clear()
+
+                for (doc in result) {
+                    val shoe = doc.toObject(Shoe::class.java)
+                    val shoeWithId = shoe.copy(id = doc.id)
+                    fullList.add(shoeWithId)
+                }
+
+                applyFilter("")
+            }
     }
 
     // 🔍 WYSZUKIWANIE
