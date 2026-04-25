@@ -63,6 +63,10 @@ class MainActivity : AppCompatActivity() {
             }
 
         setupSearch()
+        binding.btnGoToAdmin.setOnClickListener {
+            val intent = android.content.Intent(this, AdminActivity::class.java)
+            startActivity(intent)
+        }
     }
 
     // 🔍 WYSZUKIWANIE

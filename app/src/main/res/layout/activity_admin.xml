@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:padding="16dp">
+
+    <Button
+        android:id="@+id/btnBackToShop"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Wróć do sklepu" />
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Dodaj nowe buty:"
+        android:textStyle="bold"
+        android:layout_marginTop="10dp"/>
+
+    <EditText android:id="@+id/etBrand" android:layout_width="match_parent" android:layout_height="wrap_content" android:hint="Marka (np. Nike)"/>
+    <EditText android:id="@+id/etModel" android:layout_width="match_parent" android:layout_height="wrap_content" android:hint="Model (np. Dunk)"/>
+    <EditText android:id="@+id/etYear" android:layout_width="match_parent" android:layout_height="wrap_content" android:hint="Rok" android:inputType="number"/>
+    <EditText android:id="@+id/etPrice" android:layout_width="match_parent" android:layout_height="wrap_content" android:hint="Cena" android:inputType="number"/>
+    <EditText android:id="@+id/etImage" android:layout_width="match_parent" android:layout_height="wrap_content" android:hint="Link do zdjęcia"/>
+
+    <Button
+        android:id="@+id/btnAddShoe"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="DODAJ DO BAZY"
+        android:layout_marginTop="10dp"/>
+
+    <ListView
+        android:id="@+id/adminListView"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginTop="10dp" />
+</LinearLayout>
